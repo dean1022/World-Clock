@@ -40,5 +40,26 @@ function showClocks() {
     .format("hh:mm:ss [<small>]A[</small>]");
 }
 
+function updateClock(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `
+    <div class="city">
+        <div>
+            <h2>${cityName}</h2>
+            <div class="date">${moment()
+              .tz(cityTimeZone)
+              .format("dddd, MMMM D, YYYY")}</div>
+        </div>
+    <div class="time">${moment()
+      .tz(cityTimeZone)
+      .format("hh:mm:ss [<small>]A[</small>]")}</div>
+    </div>`;
+}
+
 showClocks();
 setInterval(showClocks, 1000);
+
+let citiesSelectElement = document.querySelector("#city");
+citiesSelectElement.addEventListener("change", updateClock);
