@@ -5,3 +5,8 @@ h1 {
 footer {
   text-align: center;
 }
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
