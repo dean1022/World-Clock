@@ -48,6 +48,7 @@ function updateClock(event) {
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
+    <div><a href="index.html">< Back</a></div>
     <div class="city">
         <div>
             <h2>${cityName}</h2>
